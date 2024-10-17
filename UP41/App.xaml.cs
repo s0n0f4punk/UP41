@@ -17,58 +17,58 @@ namespace UP41
     public partial class App : Application
     {
         public static UP41SQLEntities db = new UP41SQLEntities();
-        //public static int client;
-        
-        //protected override void OnExit(ExitEventArgs e)
-        //{
-        //    App.db.SaveChanges();
-        //    try
-        //    {
-        //        IsolatedStorageFile isolatedStorage = IsolatedStorageFile.GetUserStoreForAssembly();
+        public static int currentUser;
 
-        //        StreamWriter writer = new StreamWriter(new IsolatedStorageFileStream("isotest", FileMode.Create, isolatedStorage));
+        protected override void OnExit(ExitEventArgs e)
+        {
+            App.db.SaveChanges();
+            try
+            {
+                IsolatedStorageFile isolatedStorage = IsolatedStorageFile.GetUserStoreForAssembly();
 
-        //        if (App.Current.Properties[0] != null)
-        //        {
-        //            writer.WriteLine(App.Current.Properties[0].ToString());
-        //        }
-        //        writer.Flush();
-        //        writer.Close();
-        //        base.OnExit(e);
-        //    }
-        //    catch (System.Security.SecurityException sx)
-        //    {
-        //        MessageBox.Show(sx.Message);
-        //        throw;
-        //    }
-        //}
+                StreamWriter writer = new StreamWriter(new IsolatedStorageFileStream("isotest", FileMode.Create, isolatedStorage));
 
-        //protected override void OnStartup(StartupEventArgs e)
-        //{
-        //    try
-        //    {
-        //        IsolatedStorageFile isolatedStorage = IsolatedStorageFile.GetUserStoreForAssembly();
-        //        StreamReader srReader = new StreamReader(new IsolatedStorageFileStream("isotest", FileMode.OpenOrCreate, isolatedStorage));
+                if (App.Current.Properties[0] != null)
+                {
+                    writer.WriteLine(App.Current.Properties[0].ToString());
+                }
+                writer.Flush();
+                writer.Close();
+                base.OnExit(e);
+            }
+            catch (System.Security.SecurityException sx)
+            {
+                MessageBox.Show(sx.Message);
+                throw;
+            }
+        }
 
-        //        if (srReader == null)
-        //        {
-        //            MessageBox.Show("No Data stored!");
-        //        }
-        //        else
-        //        {
-        //            while (!srReader.EndOfStream)
-        //            {
-        //                string item = srReader.ReadLine();
-        //                client = int.Parse(item);
-        //            }
-        //        }
-        //        srReader.Close();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //        throw;
-        //    }
-        //}
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            try
+            {
+                IsolatedStorageFile isolatedStorage = IsolatedStorageFile.GetUserStoreForAssembly();
+                StreamReader srReader = new StreamReader(new IsolatedStorageFileStream("isotest", FileMode.OpenOrCreate, isolatedStorage));
+
+                if (srReader == null)
+                {
+                    MessageBox.Show("No Data stored!");
+                }
+                else
+                {
+                    while (!srReader.EndOfStream)
+                    {
+                        string item = srReader.ReadLine();
+                        currentUser = int.Parse(item);
+                    }
+                }
+                srReader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
+        }
     }
 }

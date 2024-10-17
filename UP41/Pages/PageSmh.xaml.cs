@@ -12,24 +12,23 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using UP41.Pages;
 
-namespace UP41
+namespace UP41.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для PageSmh.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PageSmh : Page
     {
-        public MainWindow()
+        public PageSmh()
         {
             InitializeComponent();
-            if (App.currentUser == 0) MainFrame.Navigate(new AuthPage());
-            else
-            {
-                App.Current.Properties[0] = App.currentUser;
-                MainFrame.Navigate(new PageSmh());
-            }
+            huy.Text = App.db.User.Where(x => x.Id == App.currentUser).First().Login + " " + App.db.User.Where(x => x.Id == App.currentUser).First().RoleId;
+        }
+
+        private void huybutt_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AuthPage());
         }
     }
 }
