@@ -12,24 +12,18 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using UP41.Cumponents;
 
 namespace UP41.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для WorkersListPage.xaml
+    /// Логика взаимодействия для MaterialsPage.xaml
     /// </summary>
-    public partial class WorkersListPage : Page
+    public partial class MaterialsPage : Page
     {
-        public WorkersListPage()
+        public MaterialsPage()
         {
             InitializeComponent();
-            WorkersList.ItemsSource = App.db.User.Where(x => x.RoleId == 6).ToList();
-        }
-
-        private void AddWorkerButt_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new AddWorkerPage());
+            MaterialsList.ItemsSource = App.db.Material.ToList();
         }
 
         private void BackButt_Click(object sender, RoutedEventArgs e)

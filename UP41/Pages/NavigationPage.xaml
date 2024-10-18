@@ -1,0 +1,18 @@
+﻿<Page x:Class="UP41.Pages.NavigationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UP41.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="NavigationPage">
+
+    <Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button x:Name="ExitButt" Width="200" Click="ExitButt_Click">Выйти из аккаунта</Button>
+            <Button x:Name="WorkersButt" Width="200" Click="WorkersButt_Click">Учёт рабочих</Button>
+            <Button x:Name="MaterialsButt" Width="200" Click="MaterialsButt_Click">Учёт материалов</Button> 
+        </StackPanel>
+    </Grid>
+</Page>

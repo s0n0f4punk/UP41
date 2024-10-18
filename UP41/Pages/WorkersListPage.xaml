@@ -25,7 +25,8 @@
             </ListView.View>
         </ListView>
 
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Orientation="Horizontal">
+            <Button x:Name="BackButt" Width="150" Click="BackButt_Click">Назад</Button>
             <Button x:Name="AddWorkerButt" Width="150" Click="AddWorkerButt_Click">Добавить рабочего</Button>
         </StackPanel>
     </Grid>

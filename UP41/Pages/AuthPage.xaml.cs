@@ -34,7 +34,7 @@ namespace UP41.Pages
             {
                 App.currentUser = App.db.User.Where(x => x.Login == LoginTbx.Text && x.Password == PassTbx.Password).First().Id;
                 if ((bool)RemberCheck.IsChecked) App.Current.Properties[0] = App.currentUser;
-                NavigationService.Navigate(new WorkersListPage());
+                NavigationService.Navigate(new NavigationPage());
             }
             else MessageBox.Show("Неверный логин или пароль");
         }

@@ -1,0 +1,74 @@
+﻿<Page x:Class="UP41.Pages.MaterialsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UP41.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="768" d:DesignWidth="1366"
+      Title="MaterialsPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="200*"/>
+            <RowDefinition Height="200*"/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Grid.Row="0" VerticalAlignment="Center">
+            <Button x:Name="BackButt" Click="BackButt_Click">Назад</Button>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Row="1">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock>Материалы</TextBlock>
+                <Button x:Name="MaterialsAddButt">Добавить</Button>
+                <Button x:Name="MaterialsDeleteButt">Удалить</Button>
+            </StackPanel>
+            <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" Height="290">
+                <ListView x:Name="MaterialsList">
+                    <ListView.View>
+                        <GridView>
+                            <GridView.Columns>
+                                <GridViewColumn Header="Артикул" Width="100"></GridViewColumn>
+                                <GridViewColumn Header="Наименование" Width="300"></GridViewColumn>
+                                <GridViewColumn Header="Кол-во" Width="100"></GridViewColumn>
+                                <GridViewColumn Header="Ед. измерения" Width="100"></GridViewColumn>
+                                <GridViewColumn Header="Закуп. цена" Width="150"></GridViewColumn>
+                                <GridViewColumn Header="Осн. поставщик" Width="150"></GridViewColumn>
+                                <GridViewColumn Header="Срок доставки" Width="150"></GridViewColumn>
+                                <GridViewColumn Header="Склад" Width="150"></GridViewColumn>
+                            </GridView.Columns>
+                        </GridView>
+                    </ListView.View>
+                </ListView>    
+            </ScrollViewer>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Row="2">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock>Компоненты</TextBlock>
+                <Button x:Name="ComponentsMAddButt">Добавить</Button>
+                <Button x:Name="ComponentsDeleteButt">Удалить</Button>
+            </StackPanel>
+            <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" Height="290">
+                <ListView x:Name="ComponentsList">
+                    <ListView.View>
+                        <GridView>
+                            <GridView.Columns>
+                                <GridViewColumn Header="Артикул" Width="100" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
+                                <GridViewColumn Header="Наименование" Width="300" DisplayMemberBinding="{Binding Title}"></GridViewColumn>
+                                <GridViewColumn Header="Кол-во" Width="100" DisplayMemberBinding="{Binding Amount}"></GridViewColumn>
+                                <GridViewColumn Header="Ед. измерения" Width="100" DisplayMemberBinding="{Binding MaterialUnit.Title}"></GridViewColumn>
+                                <GridViewColumn Header="Закуп. цена" Width="150" DisplayMemberBinding="{Binding Cost}"></GridViewColumn>
+                                <GridViewColumn Header="Осн. поставщик" Width="150" DisplayMemberBinding="{Binding Supplier.Title}"></GridViewColumn>
+                                <GridViewColumn Header="Срок доставки" Width="150" DisplayMemberBinding="{Binding }"></GridViewColumn>
+                                <GridViewColumn Header="Склад" Width="150" DisplayMemberBinding="{Binding }"></GridViewColumn>
+                            </GridView.Columns>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </ScrollViewer>
+        </StackPanel>
+    </Grid>
+</Page>
