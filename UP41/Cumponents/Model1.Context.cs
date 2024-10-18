@@ -47,8 +47,12 @@ namespace UP41.Cumponents
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Supplier> Supplier { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<User> User { get; set; }
         public virtual DbSet<UserFullName> UserFullName { get; set; }
         public virtual DbSet<UserImage> UserImage { get; set; }
+        public virtual DbSet<City> City { get; set; }
+        public virtual DbSet<Street> Street { get; set; }
+        public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<PerformTasks> PerformTasks { get; set; }
+        public virtual DbSet<User_Tasks> User_Tasks { get; set; }
     }
 }

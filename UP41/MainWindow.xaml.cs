@@ -28,7 +28,7 @@ namespace UP41
             else
             {
                 App.Current.Properties[0] = App.currentUser;
-                MainFrame.Navigate(new PageSmh());
+                MainFrame.Navigate(new WorkersListPage());
             }
         }
     }

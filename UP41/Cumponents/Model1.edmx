@@ -4,7 +4,14 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище UP421SQLModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище UP421SQLModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Description">
           <Key>
             <PropertyRef Name="Id" />
@@ -125,6 +132,13 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="PerformTasks">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Product">
           <Key>
             <PropertyRef Name="Id" />
@@ -179,6 +193,14 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="Street">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Id_City" Type="int" />
+        </EntityType>
         <EntityType Name="Supplier">
           <Key>
             <PropertyRef Name="Id" />
@@ -206,6 +228,23 @@
           <Property Name="Login" Type="nvarchar" MaxLength="50" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" />
           <Property Name="RoleId" Type="int" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
+          <Property Name="Qualification" Type="nvarchar(max)" />
+          <Property Name="Education" Type="nvarchar(max)" />
+          <Property Name="BirthDate" Type="date" />
+          <Property Name="Id_Street" Type="int" />
+          <Property Name="House" Type="nvarchar" MaxLength="5" />
+          <Property Name="Flat" Type="nvarchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="User_Tasks">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_User" Type="int" />
+          <Property Name="Id_PT" Type="int" />
         </EntityType>
         <EntityType Name="UserFullName">
           <Key>
@@ -479,6 +518,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Street_City">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="Street" Type="Self.Street" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Street">
+              <PropertyRef Name="Id_City" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_User_Role">
           <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
@@ -488,6 +539,42 @@
             </Principal>
             <Dependent Role="User">
               <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Street">
+          <End Role="Street" Type="Self.Street" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Street">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="Id_Street" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Tasks_PerformTasks">
+          <End Role="PerformTasks" Type="Self.PerformTasks" Multiplicity="0..1" />
+          <End Role="User_Tasks" Type="Self.User_Tasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PerformTasks">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User_Tasks">
+              <PropertyRef Name="Id_PT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Tasks_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="User_Tasks" Type="Self.User_Tasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User_Tasks">
+              <PropertyRef Name="Id_User" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -516,6 +603,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Хранилище UP421SQLModelContainer">
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Description" EntityType="Self.Description" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Equipment" EntityType="Self.Equipment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EquipmentDesc" EntityType="Self.EquipmentDesc" Schema="dbo" store:Type="Tables" />
@@ -530,15 +618,18 @@
           <EntitySet Name="MaterialLength" EntityType="Self.MaterialLength" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MaterialType" EntityType="Self.MaterialType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MaterialUnit" EntityType="Self.MaterialUnit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PerformTasks" EntityType="Self.PerformTasks" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductContent" EntityType="Self.ProductContent" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductHardware" EntityType="Self.ProductHardware" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductMaterial" EntityType="Self.ProductMaterial" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductOperation" EntityType="Self.ProductOperation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Street" EntityType="Self.Street" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User_Tasks" EntityType="Self.User_Tasks" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserFullName" EntityType="Self.UserFullName" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserImage" EntityType="Self.UserImage" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Description_Material" Association="Self.FK_Description_Material">
@@ -625,9 +716,25 @@
             <End Role="Product" EntitySet="Product" />
             <End Role="ProductOperation" EntitySet="ProductOperation" />
           </AssociationSet>
+          <AssociationSet Name="FK_Street_City" Association="Self.FK_Street_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Street" EntitySet="Street" />
+          </AssociationSet>
           <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
             <End Role="Role" EntitySet="Role" />
             <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Street" Association="Self.FK_User_Street">
+            <End Role="Street" EntitySet="Street" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Tasks_PerformTasks" Association="Self.FK_User_Tasks_PerformTasks">
+            <End Role="PerformTasks" EntitySet="PerformTasks" />
+            <End Role="User_Tasks" EntitySet="User_Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Tasks_User" Association="Self.FK_User_Tasks_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="User_Tasks" EntitySet="User_Tasks" />
           </AssociationSet>
           <AssociationSet Name="FK_UserFullName_User" Association="Self.FK_UserFullName_User">
             <End Role="User" EntitySet="User" />
@@ -638,8 +745,7 @@
             <End Role="UserImage" EntitySet="UserImage" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="UP421SQLModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -856,7 +962,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="User" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
+          <NavigationProperty Name="User" Relationship="UP421SQLModel.FK_User_Role" FromRole="Role" ToRole="User" />
         </EntityType>
         <EntityType Name="Supplier">
           <Key>
@@ -879,18 +985,6 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <EntityType Name="User">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="RoleId" Type="Int32" />
-          <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
-          <NavigationProperty Name="UserFullName" Relationship="Self.FK_UserFullName_User" FromRole="User" ToRole="UserFullName" />
-          <NavigationProperty Name="UserImage" Relationship="Self.FK_UserImage_User" FromRole="User" ToRole="UserImage" />
-        </EntityType>
         <EntityType Name="UserFullName">
           <Key>
             <PropertyRef Name="Id" />
@@ -900,7 +994,7 @@
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="User" Relationship="Self.FK_UserFullName_User" FromRole="UserFullName" ToRole="User" />
+          <NavigationProperty Name="User" Relationship="UP421SQLModel.FK_UserFullName_User" FromRole="UserFullName" ToRole="User" />
         </EntityType>
         <EntityType Name="UserImage">
           <Key>
@@ -911,7 +1005,7 @@
           <Property Name="ImageBin" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="Timestamp" Type="DateTime" Precision="3" />
           <Property Name="UserId" Type="Int32" />
-          <NavigationProperty Name="User" Relationship="Self.FK_UserImage_User" FromRole="UserImage" ToRole="User" />
+          <NavigationProperty Name="User" Relationship="UP421SQLModel.FK_UserImage_User" FromRole="UserImage" ToRole="User" />
         </EntityType>
         <Association Name="FK_Description_Material">
           <End Role="Material" Type="Self.Material" Multiplicity="0..1" />
@@ -1165,42 +1259,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_User_Role">
-          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
-          <End Role="User" Type="Self.User" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Role">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="User">
-              <PropertyRef Name="RoleId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_UserFullName_User">
-          <End Role="User" Type="Self.User" Multiplicity="1" />
-          <End Role="UserFullName" Type="Self.UserFullName" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="UserFullName">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_UserImage_User">
-          <End Role="User" Type="Self.User" Multiplicity="0..1" />
-          <End Role="UserImage" Type="Self.UserImage" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="UserImage">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="UP41SQLEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Description" EntityType="Self.Description" />
           <EntitySet Name="Equipment" EntityType="Self.Equipment" />
@@ -1224,7 +1282,6 @@
           <EntitySet Name="Role" EntityType="Self.Role" />
           <EntitySet Name="Supplier" EntityType="Self.Supplier" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <EntitySet Name="User" EntityType="Self.User" />
           <EntitySet Name="UserFullName" EntityType="Self.UserFullName" />
           <EntitySet Name="UserImage" EntityType="Self.UserImage" />
           <AssociationSet Name="FK_Description_Material" Association="Self.FK_Description_Material">
@@ -1311,19 +1368,183 @@
             <End Role="Product" EntitySet="Product" />
             <End Role="ProductOperation" EntitySet="ProductOperation" />
           </AssociationSet>
-          <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+          <EntitySet Name="City" EntityType="UP421SQLModel.City" />
+          <EntitySet Name="Street" EntityType="UP421SQLModel.Street" />
+          <EntitySet Name="User" EntityType="UP421SQLModel.User" />
+          <AssociationSet Name="FK_Street_City" Association="UP421SQLModel.FK_Street_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Street" EntitySet="Street" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role" Association="UP421SQLModel.FK_User_Role">
             <End Role="Role" EntitySet="Role" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
-          <AssociationSet Name="FK_UserFullName_User" Association="Self.FK_UserFullName_User">
+          <AssociationSet Name="FK_User_Street" Association="UP421SQLModel.FK_User_Street">
+            <End Role="Street" EntitySet="Street" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserFullName_User" Association="UP421SQLModel.FK_UserFullName_User">
             <End Role="User" EntitySet="User" />
             <End Role="UserFullName" EntitySet="UserFullName" />
           </AssociationSet>
-          <AssociationSet Name="FK_UserImage_User" Association="Self.FK_UserImage_User">
+          <AssociationSet Name="FK_UserImage_User" Association="UP421SQLModel.FK_UserImage_User">
             <End Role="User" EntitySet="User" />
             <End Role="UserImage" EntitySet="UserImage" />
           </AssociationSet>
-        </EntityContainer>
+          <EntitySet Name="PerformTasks" EntityType="UP421SQLModel.PerformTasks" />
+          <EntitySet Name="User_Tasks" EntityType="UP421SQLModel.User_Tasks" />
+          <AssociationSet Name="FK_User_Tasks_PerformTasks" Association="UP421SQLModel.FK_User_Tasks_PerformTasks">
+            <End Role="PerformTasks" EntitySet="PerformTasks" />
+            <End Role="User_Tasks" EntitySet="User_Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Tasks_User" Association="UP421SQLModel.FK_User_Tasks_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="User_Tasks" EntitySet="User_Tasks" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Street" Relationship="UP421SQLModel.FK_Street_City" FromRole="City" ToRole="Street" />
+        </EntityType>
+        <EntityType Name="Street">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Id_City" Type="Int32" />
+          <NavigationProperty Name="City" Relationship="UP421SQLModel.FK_Street_City" FromRole="Street" ToRole="City" />
+          <NavigationProperty Name="User" Relationship="UP421SQLModel.FK_User_Street" FromRole="Street" ToRole="User" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RoleId" Type="Int32" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Qualification" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Education" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDate" Type="DateTime" Precision="0" />
+          <Property Name="Id_Street" Type="Int32" />
+          <Property Name="House" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Flat" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Role" Relationship="UP421SQLModel.FK_User_Role" FromRole="User" ToRole="Role" />
+          <NavigationProperty Name="Street" Relationship="UP421SQLModel.FK_User_Street" FromRole="User" ToRole="Street" />
+          <NavigationProperty Name="UserFullName" Relationship="UP421SQLModel.FK_UserFullName_User" FromRole="User" ToRole="UserFullName" />
+          <NavigationProperty Name="UserImage" Relationship="UP421SQLModel.FK_UserImage_User" FromRole="User" ToRole="UserImage" />
+          <NavigationProperty Name="User_Tasks" Relationship="UP421SQLModel.FK_User_Tasks_User" FromRole="User" ToRole="User_Tasks" />
+        </EntityType>
+        <Association Name="FK_Street_City">
+          <End Type="UP421SQLModel.City" Role="City" Multiplicity="0..1" />
+          <End Type="UP421SQLModel.Street" Role="Street" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Street">
+              <PropertyRef Name="Id_City" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Role">
+          <End Type="UP421SQLModel.Role" Role="Role" Multiplicity="0..1" />
+          <End Type="UP421SQLModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Street">
+          <End Type="UP421SQLModel.Street" Role="Street" Multiplicity="0..1" />
+          <End Type="UP421SQLModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Street">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="Id_Street" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserFullName_User">
+          <End Type="UP421SQLModel.User" Role="User" Multiplicity="1" />
+          <End Type="UP421SQLModel.UserFullName" Role="UserFullName" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserFullName">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserImage_User">
+          <End Type="UP421SQLModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="UP421SQLModel.UserImage" Role="UserImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserImage">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PerformTasks">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User_Tasks" Relationship="UP421SQLModel.FK_User_Tasks_PerformTasks" FromRole="PerformTasks" ToRole="User_Tasks" />
+        </EntityType>
+        <EntityType Name="User_Tasks">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_User" Type="Int32" />
+          <Property Name="Id_PT" Type="Int32" />
+          <NavigationProperty Name="PerformTasks" Relationship="UP421SQLModel.FK_User_Tasks_PerformTasks" FromRole="User_Tasks" ToRole="PerformTasks" />
+          <NavigationProperty Name="User" Relationship="UP421SQLModel.FK_User_Tasks_User" FromRole="User_Tasks" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_User_Tasks_PerformTasks">
+          <End Type="UP421SQLModel.PerformTasks" Role="PerformTasks" Multiplicity="0..1" />
+          <End Type="UP421SQLModel.User_Tasks" Role="User_Tasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PerformTasks">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User_Tasks">
+              <PropertyRef Name="Id_PT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Tasks_User">
+          <End Type="UP421SQLModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="UP421SQLModel.User_Tasks" Role="User_Tasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User_Tasks">
+              <PropertyRef Name="Id_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1543,16 +1764,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="UP421SQLModel.User">
-              <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Login" ColumnName="Login" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="UserFullName">
             <EntityTypeMapping TypeName="UP421SQLModel.UserFullName">
               <MappingFragment StoreEntitySet="UserFullName">
@@ -1572,6 +1783,59 @@
                 <ScalarProperty Name="ImageBin" ColumnName="ImageBin" />
                 <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="City">
+            <EntityTypeMapping TypeName="UP421SQLModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Street">
+            <EntityTypeMapping TypeName="UP421SQLModel.Street">
+              <MappingFragment StoreEntitySet="Street">
+                <ScalarProperty Name="Id_City" ColumnName="Id_City" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="UP421SQLModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Flat" ColumnName="Flat" />
+                <ScalarProperty Name="House" ColumnName="House" />
+                <ScalarProperty Name="Id_Street" ColumnName="Id_Street" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Education" ColumnName="Education" />
+                <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PerformTasks">
+            <EntityTypeMapping TypeName="UP421SQLModel.PerformTasks">
+              <MappingFragment StoreEntitySet="PerformTasks">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_Tasks">
+            <EntityTypeMapping TypeName="UP421SQLModel.User_Tasks">
+              <MappingFragment StoreEntitySet="User_Tasks">
+                <ScalarProperty Name="Id_PT" ColumnName="Id_PT" />
+                <ScalarProperty Name="Id_User" ColumnName="Id_User" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

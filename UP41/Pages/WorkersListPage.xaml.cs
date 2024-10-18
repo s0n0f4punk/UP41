@@ -12,23 +12,24 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UP41.Cumponents;
 
 namespace UP41.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для PageSmh.xaml
+    /// Логика взаимодействия для WorkersListPage.xaml
     /// </summary>
-    public partial class PageSmh : Page
+    public partial class WorkersListPage : Page
     {
-        public PageSmh()
+        public WorkersListPage()
         {
             InitializeComponent();
-            huy.Text = App.db.User.Where(x => x.Id == App.currentUser).First().Login + " " + App.db.User.Where(x => x.Id == App.currentUser).First().RoleId;
+            WorkersList.ItemsSource = App.db.User.Where(x => x.RoleId == 6).ToList();
         }
 
-        private void huybutt_Click(object sender, RoutedEventArgs e)
+        private void AddWorkerButt_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AuthPage());
+            NavigationService.Navigate(new AddWorkerPage());
         }
     }
 }

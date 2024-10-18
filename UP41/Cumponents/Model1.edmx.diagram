@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3a44364d54f047608cbabc11ef9a866b" Name="Diagram1" ZoomLevel="47">
+      <Diagram DiagramId="3a44364d54f047608cbabc11ef9a866b" Name="Diagram1" ZoomLevel="62">
         <EntityTypeShape EntityType="UP421SQLModel.Description" Width="1.5" PointX="8.25" PointY="7" IsExpanded="true" />
         <EntityTypeShape EntityType="UP421SQLModel.Equipment" Width="1.5" PointX="6.25" PointY="20.875" IsExpanded="true" />
         <EntityTypeShape EntityType="UP421SQLModel.EquipmentDesc" Width="1.5" PointX="8.5" PointY="21" IsExpanded="true" />
@@ -27,7 +27,6 @@
         <EntityTypeShape EntityType="UP421SQLModel.Role" Width="1.5" PointX="10.75" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="UP421SQLModel.Supplier" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="UP421SQLModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="UP421SQLModel.User" Width="1.5" PointX="13" PointY="3.25" IsExpanded="true" />
         <EntityTypeShape EntityType="UP421SQLModel.UserFullName" Width="1.5" PointX="15.25" PointY="1.875" IsExpanded="true" />
         <EntityTypeShape EntityType="UP421SQLModel.UserImage" Width="1.5" PointX="15.25" PointY="4.75" IsExpanded="true" />
         <AssociationConnector Association="UP421SQLModel.FK_Description_Material" ManuallyRouted="false" />
@@ -51,10 +50,19 @@
         <AssociationConnector Association="UP421SQLModel.FK_ProductHardware_Product" ManuallyRouted="false" />
         <AssociationConnector Association="UP421SQLModel.FK_ProductMaterial_Product" ManuallyRouted="false" />
         <AssociationConnector Association="UP421SQLModel.FK_ProductOperation_Product" ManuallyRouted="false" />
-        <AssociationConnector Association="UP421SQLModel.FK_User_Role" ManuallyRouted="false" />
-        <AssociationConnector Association="UP421SQLModel.FK_UserFullName_User" ManuallyRouted="false" />
-        <AssociationConnector Association="UP421SQLModel.FK_UserImage_User" ManuallyRouted="false" />
-      </Diagram>
+        <EntityTypeShape EntityType="UP421SQLModel.City" Width="1.5" PointX="8.5" PointY="4.125" />
+        <EntityTypeShape EntityType="UP421SQLModel.Street" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UP421SQLModel.User" Width="1.5" PointX="13" PointY="2.5" />
+        <AssociationConnector Association="UP421SQLModel.FK_Street_City" />
+        <AssociationConnector Association="UP421SQLModel.FK_User_Role" />
+        <AssociationConnector Association="UP421SQLModel.FK_User_Street" />
+        <AssociationConnector Association="UP421SQLModel.FK_UserFullName_User" />
+        <AssociationConnector Association="UP421SQLModel.FK_UserImage_User" />
+        <EntityTypeShape EntityType="UP421SQLModel.PerformTasks" Width="1.5" PointX="16" PointY="8" />
+        <EntityTypeShape EntityType="UP421SQLModel.User_Tasks" Width="1.5" PointX="18.25" PointY="3.75" />
+        <AssociationConnector Association="UP421SQLModel.FK_User_Tasks_PerformTasks" />
+        <AssociationConnector Association="UP421SQLModel.FK_User_Tasks_User" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>
