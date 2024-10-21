@@ -14,18 +14,10 @@ namespace UP41.Cumponents
     
     public partial class Equipment
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Equipment()
-        {
-            this.EquipmentDesc = new HashSet<EquipmentDesc>();
-        }
+        public string Model { get; set; }
+        public Nullable<int> IdTypeEquipment { get; set; }
+        public string Characteristic { get; set; }
     
-        public int Id { get; set; }
-        public string Title { get; set; }
-        public Nullable<int> TypeId { get; set; }
-    
-        public virtual EquipmentType EquipmentType { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EquipmentDesc> EquipmentDesc { get; set; }
+        public virtual TypeEquipment TypeEquipment { get; set; }
     }
 }

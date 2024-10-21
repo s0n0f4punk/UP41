@@ -80,7 +80,7 @@
                     <ListView.View>
                         <GridView>
                             <GridView.Columns>
-                                <GridViewColumn x:Name="Title" Header="Производственные операции" Width="200" DisplayMemberBinding="{Binding Title}"></GridViewColumn>
+                                <GridViewColumn x:Name="Title" Header="Производственные операции" Width="200" DisplayMemberBinding="{Binding Name}"></GridViewColumn>
                             </GridView.Columns>
                         </GridView>
                     </ListView.View>

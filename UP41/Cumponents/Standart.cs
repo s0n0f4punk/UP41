@@ -12,15 +12,18 @@ namespace UP41.Cumponents
     using System;
     using System.Collections.Generic;
     
-    public partial class ProductOperation
+    public partial class Standart
     {
-        public int ProductId { get; set; }
-        public string Description { get; set; }
-        public int OrderCount { get; set; }
-        public Nullable<System.TimeSpan> OperationTime { get; set; }
-        public Nullable<int> TypeId { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Standart()
+        {
+            this.Material = new HashSet<Material>();
+        }
     
-        public virtual EquipmentType EquipmentType { get; set; }
-        public virtual Product Product { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Material> Material { get; set; }
     }
 }

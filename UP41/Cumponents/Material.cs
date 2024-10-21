@@ -17,32 +17,28 @@ namespace UP41.Cumponents
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Material()
         {
-            this.Description = new HashSet<Description>();
-            this.Gost = new HashSet<Gost>();
-            this.MaterialImage = new HashSet<MaterialImage>();
-            this.MaterialLength = new HashSet<MaterialLength>();
             this.ProductMaterial = new HashSet<ProductMaterial>();
         }
     
-        public string Id { get; set; }
-        public string Title { get; set; }
-        public Nullable<int> UnitId { get; set; }
-        public Nullable<int> Amount { get; set; }
-        public Nullable<int> SupplierId { get; set; }
-        public Nullable<int> TypeId { get; set; }
-        public Nullable<int> Cost { get; set; }
+        public string Article { get; set; }
+        public string Name { get; set; }
+        public Nullable<int> IdUnit { get; set; }
+        public Nullable<decimal> Count { get; set; }
+        public string SupplierName { get; set; }
+        public Nullable<int> IdMaterialImage { get; set; }
+        public Nullable<int> IdTypeMaterial { get; set; }
+        public Nullable<decimal> PriceOneKg { get; set; }
+        public Nullable<int> IdStandart { get; set; }
+        public Nullable<decimal> WidthMetr { get; set; }
+        public Nullable<decimal> MassOneMetr { get; set; }
+        public Nullable<int> IdStorage { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Description> Description { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Gost> Gost { get; set; }
-        public virtual MaterialType MaterialType { get; set; }
-        public virtual MaterialUnit MaterialUnit { get; set; }
+        public virtual MaterialImage MaterialImage { get; set; }
+        public virtual Storage Storage { get; set; }
+        public virtual Standart Standart { get; set; }
         public virtual Supplier Supplier { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MaterialImage> MaterialImage { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MaterialLength> MaterialLength { get; set; }
+        public virtual TypeMaterial TypeMaterial { get; set; }
+        public virtual Unit Unit { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductMaterial> ProductMaterial { get; set; }
     }

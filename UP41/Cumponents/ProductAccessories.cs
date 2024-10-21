@@ -12,14 +12,14 @@ namespace UP41.Cumponents
     using System;
     using System.Collections.Generic;
     
-    public partial class UserFullName
+    public partial class ProductAccessories
     {
         public int Id { get; set; }
-        public string LastName { get; set; }
-        public string FirstName { get; set; }
-        public string Patronymic { get; set; }
-        public int UserId { get; set; }
+        public int IdProduct { get; set; }
+        public string AccessoriesArticle { get; set; }
+        public decimal Count { get; set; }
     
-        public virtual User User { get; set; }
+        public virtual Accessories Accessories { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

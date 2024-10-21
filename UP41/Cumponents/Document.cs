@@ -12,12 +12,13 @@ namespace UP41.Cumponents
     using System;
     using System.Collections.Generic;
     
-    public partial class Gost
+    public partial class Document
     {
         public int Id { get; set; }
-        public string Title { get; set; }
-        public string MaterialId { get; set; }
+        public string Name { get; set; }
+        public string Format { get; set; }
+        public Nullable<int> IdOrder { get; set; }
     
-        public virtual Material Material { get; set; }
+        public virtual Order Order { get; set; }
     }
 }

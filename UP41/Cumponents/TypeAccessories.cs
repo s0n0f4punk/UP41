@@ -12,12 +12,18 @@ namespace UP41.Cumponents
     using System;
     using System.Collections.Generic;
     
-    public partial class Description
+    public partial class TypeAccessories
     {
-        public int Id { get; set; }
-        public string Subtitle { get; set; }
-        public string MaterialId { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public TypeAccessories()
+        {
+            this.Accessories = new HashSet<Accessories>();
+        }
     
-        public virtual Material Material { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Accessories> Accessories { get; set; }
     }
 }

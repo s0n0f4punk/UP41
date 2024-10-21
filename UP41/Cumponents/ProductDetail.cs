@@ -12,12 +12,13 @@ namespace UP41.Cumponents
     using System;
     using System.Collections.Generic;
     
-    public partial class EquipmentDesc
+    public partial class ProductDetail
     {
-        public int Id { get; set; }
-        public string Subtitle { get; set; }
-        public Nullable<int> EquipmentId { get; set; }
+        public int IdProduct { get; set; }
+        public int IdDetail { get; set; }
+        public Nullable<int> Count { get; set; }
     
-        public virtual Equipment Equipment { get; set; }
+        public virtual Product Product { get; set; }
+        public virtual Product Product1 { get; set; }
     }
 }

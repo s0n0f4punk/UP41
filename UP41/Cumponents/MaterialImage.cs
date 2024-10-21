@@ -14,12 +14,16 @@ namespace UP41.Cumponents
     
     public partial class MaterialImage
     {
-        public int Id { get; set; }
-        public string ImagePath { get; set; }
-        public byte[] ImageBin { get; set; }
-        public Nullable<System.DateTime> Timestamp { get; set; }
-        public string MaterialId { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public MaterialImage()
+        {
+            this.Material = new HashSet<Material>();
+        }
     
-        public virtual Material Material { get; set; }
+        public int Id { get; set; }
+        public byte[] Photo { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Material> Material { get; set; }
     }
 }

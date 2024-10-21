@@ -14,12 +14,16 @@ namespace UP41.Cumponents
     
     public partial class UserImage
     {
-        public int Id { get; set; }
-        public string ImagePath { get; set; }
-        public byte[] ImageBin { get; set; }
-        public Nullable<System.DateTime> Timestamp { get; set; }
-        public Nullable<int> UserId { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public UserImage()
+        {
+            this.User = new HashSet<User>();
+        }
     
-        public virtual User User { get; set; }
+        public int Id { get; set; }
+        public byte[] Photo { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<User> User { get; set; }
     }
 }

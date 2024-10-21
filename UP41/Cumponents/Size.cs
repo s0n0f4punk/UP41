@@ -12,14 +12,15 @@ namespace UP41.Cumponents
     using System;
     using System.Collections.Generic;
     
-    public partial class ProductHardware
+    public partial class Size
     {
         public int Id { get; set; }
-        public Nullable<int> ProductId { get; set; }
-        public string HardwareId { get; set; }
-        public Nullable<int> Amount { get; set; }
+        public string Name { get; set; }
+        public Nullable<decimal> SizeValue { get; set; }
+        public Nullable<int> IdUnit { get; set; }
+        public Nullable<int> IdProduct { get; set; }
     
-        public virtual Hardware Hardware { get; set; }
         public virtual Product Product { get; set; }
+        public virtual Unit Unit { get; set; }
     }
 }

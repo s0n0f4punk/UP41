@@ -17,32 +17,33 @@ namespace UP41.Cumponents
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
-            this.UserFullName = new HashSet<UserFullName>();
-            this.UserImage = new HashSet<UserImage>();
-            this.User_Tasks = new HashSet<User_Tasks>();
+            this.Order = new HashSet<Order>();
+            this.Order1 = new HashSet<Order>();
+            this.UserTasks = new HashSet<UserTasks>();
         }
     
-        public int Id { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
         public Nullable<int> RoleId { get; set; }
         public string Surname { get; set; }
         public string Name { get; set; }
         public string Patronymic { get; set; }
-        public string Qualification { get; set; }
-        public string Education { get; set; }
+        public Nullable<int> IdUserImage { get; set; }
         public Nullable<System.DateTime> BirthDate { get; set; }
         public Nullable<int> Id_Street { get; set; }
         public string House { get; set; }
         public string Flat { get; set; }
+        public string Qualification { get; set; }
+        public string Education { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order> Order { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order> Order1 { get; set; }
         public virtual Role Role { get; set; }
         public virtual Street Street { get; set; }
+        public virtual UserImage UserImage { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserFullName> UserFullName { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserImage> UserImage { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User_Tasks> User_Tasks { get; set; }
+        public virtual ICollection<UserTasks> UserTasks { get; set; }
     }
 }

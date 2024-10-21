@@ -12,18 +12,21 @@ namespace UP41.Cumponents
     using System;
     using System.Collections.Generic;
     
-    public partial class MaterialType
+    public partial class TypeEquipment
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public MaterialType()
+        public TypeEquipment()
         {
-            this.Material = new HashSet<Material>();
+            this.Equipment = new HashSet<Equipment>();
+            this.OperationSpecification = new HashSet<OperationSpecification>();
         }
     
-        public int Id { get; set; }
-        public string Title { get; set; }
+        public int IdTypeEquipment { get; set; }
+        public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Material> Material { get; set; }
+        public virtual ICollection<Equipment> Equipment { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<OperationSpecification> OperationSpecification { get; set; }
     }
 }

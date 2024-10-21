@@ -17,26 +17,31 @@ namespace UP41.Cumponents
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
-            this.ProductContent = new HashSet<ProductContent>();
-            this.ProductContent1 = new HashSet<ProductContent>();
-            this.ProductHardware = new HashSet<ProductHardware>();
+            this.OperationSpecification = new HashSet<OperationSpecification>();
+            this.Order = new HashSet<Order>();
+            this.ProductAccessories = new HashSet<ProductAccessories>();
+            this.ProductDetail = new HashSet<ProductDetail>();
+            this.ProductDetail1 = new HashSet<ProductDetail>();
             this.ProductMaterial = new HashSet<ProductMaterial>();
-            this.ProductOperation = new HashSet<ProductOperation>();
+            this.Size = new HashSet<Size>();
         }
     
         public int Id { get; set; }
-        public string Title { get; set; }
-        public string SizeDesc { get; set; }
+        public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductContent> ProductContent { get; set; }
+        public virtual ICollection<OperationSpecification> OperationSpecification { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductContent> ProductContent1 { get; set; }
+        public virtual ICollection<Order> Order { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductHardware> ProductHardware { get; set; }
+        public virtual ICollection<ProductAccessories> ProductAccessories { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProductDetail> ProductDetail { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProductDetail> ProductDetail1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductMaterial> ProductMaterial { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductOperation> ProductOperation { get; set; }
+        public virtual ICollection<Size> Size { get; set; }
     }
 }

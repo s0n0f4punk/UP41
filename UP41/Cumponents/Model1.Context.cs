@@ -13,10 +13,10 @@ namespace UP41.Cumponents
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class UP41SQLEntities : DbContext
+    public partial class UP41Entities : DbContext
     {
-        public UP41SQLEntities()
-            : base("name=UP41SQLEntities")
+        public UP41Entities()
+            : base("name=UP41Entities")
         {
         }
     
@@ -25,34 +25,33 @@ namespace UP41.Cumponents
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Description> Description { get; set; }
+        public virtual DbSet<Accessories> Accessories { get; set; }
+        public virtual DbSet<AcessoriesImage> AcessoriesImage { get; set; }
+        public virtual DbSet<Document> Document { get; set; }
         public virtual DbSet<Equipment> Equipment { get; set; }
-        public virtual DbSet<EquipmentDesc> EquipmentDesc { get; set; }
-        public virtual DbSet<EquipmentType> EquipmentType { get; set; }
-        public virtual DbSet<Gost> Gost { get; set; }
-        public virtual DbSet<Hardware> Hardware { get; set; }
-        public virtual DbSet<HardwareImage> HardwareImage { get; set; }
-        public virtual DbSet<HardwareType> HardwareType { get; set; }
-        public virtual DbSet<HardwareUnit> HardwareUnit { get; set; }
-        public virtual DbSet<Material> Material { get; set; }
         public virtual DbSet<MaterialImage> MaterialImage { get; set; }
-        public virtual DbSet<MaterialLength> MaterialLength { get; set; }
-        public virtual DbSet<MaterialType> MaterialType { get; set; }
-        public virtual DbSet<MaterialUnit> MaterialUnit { get; set; }
+        public virtual DbSet<OperationSpecification> OperationSpecification { get; set; }
+        public virtual DbSet<Order> Order { get; set; }
+        public virtual DbSet<PerformTasks> PerformTasks { get; set; }
         public virtual DbSet<Product> Product { get; set; }
-        public virtual DbSet<ProductContent> ProductContent { get; set; }
-        public virtual DbSet<ProductHardware> ProductHardware { get; set; }
+        public virtual DbSet<ProductAccessories> ProductAccessories { get; set; }
+        public virtual DbSet<ProductDetail> ProductDetail { get; set; }
         public virtual DbSet<ProductMaterial> ProductMaterial { get; set; }
-        public virtual DbSet<ProductOperation> ProductOperation { get; set; }
         public virtual DbSet<Role> Role { get; set; }
+        public virtual DbSet<Size> Size { get; set; }
+        public virtual DbSet<Standart> Standart { get; set; }
+        public virtual DbSet<Storage> Storage { get; set; }
         public virtual DbSet<Supplier> Supplier { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<UserFullName> UserFullName { get; set; }
+        public virtual DbSet<TypeAccessories> TypeAccessories { get; set; }
+        public virtual DbSet<TypeEquipment> TypeEquipment { get; set; }
+        public virtual DbSet<TypeMaterial> TypeMaterial { get; set; }
+        public virtual DbSet<Unit> Unit { get; set; }
         public virtual DbSet<UserImage> UserImage { get; set; }
+        public virtual DbSet<UserTasks> UserTasks { get; set; }
         public virtual DbSet<City> City { get; set; }
         public virtual DbSet<Street> Street { get; set; }
+        public virtual DbSet<Material> Material { get; set; }
         public virtual DbSet<User> User { get; set; }
-        public virtual DbSet<PerformTasks> PerformTasks { get; set; }
-        public virtual DbSet<User_Tasks> User_Tasks { get; set; }
     }
 }

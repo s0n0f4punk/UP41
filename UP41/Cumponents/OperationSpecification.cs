@@ -12,14 +12,15 @@ namespace UP41.Cumponents
     using System;
     using System.Collections.Generic;
     
-    public partial class ProductContent
+    public partial class OperationSpecification
     {
-        public int Id { get; set; }
-        public Nullable<int> ProductId { get; set; }
-        public Nullable<int> ContentId { get; set; }
-        public Nullable<int> Amount { get; set; }
+        public int IdProduct { get; set; }
+        public string Operation { get; set; }
+        public int Number { get; set; }
+        public Nullable<int> IdTypeEquipment { get; set; }
+        public Nullable<System.TimeSpan> Duration { get; set; }
     
         public virtual Product Product { get; set; }
-        public virtual Product Product1 { get; set; }
+        public virtual TypeEquipment TypeEquipment { get; set; }
     }
 }

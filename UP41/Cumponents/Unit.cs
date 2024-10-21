@@ -12,18 +12,24 @@ namespace UP41.Cumponents
     using System;
     using System.Collections.Generic;
     
-    public partial class HardwareUnit
+    public partial class Unit
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public HardwareUnit()
+        public Unit()
         {
-            this.Hardware = new HashSet<Hardware>();
+            this.Accessories = new HashSet<Accessories>();
+            this.Size = new HashSet<Size>();
+            this.Material = new HashSet<Material>();
         }
     
         public int Id { get; set; }
-        public string Title { get; set; }
+        public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Hardware> Hardware { get; set; }
+        public virtual ICollection<Accessories> Accessories { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Size> Size { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Material> Material { get; set; }
     }
 }

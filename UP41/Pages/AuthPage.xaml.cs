@@ -24,15 +24,15 @@ namespace UP41.Pages
         public AuthPage()
         {
             InitializeComponent();
-            App.currentUser = 0;
-            App.Current.Properties[0] = 0;
+            App.currentUser = null;
+            App.Current.Properties[0] = null;
         }
 
         private void EnterButt_Click(object sender, RoutedEventArgs e)
         {
             if (App.db.User.Any(x => x.Login == LoginTbx.Text && x.Password == PassTbx.Password))
             {
-                App.currentUser = App.db.User.Where(x => x.Login == LoginTbx.Text && x.Password == PassTbx.Password).First().Id;
+                App.currentUser = App.db.User.Where(x => x.Login == LoginTbx.Text && x.Password == PassTbx.Password).First().Login;
                 if ((bool)RemberCheck.IsChecked) App.Current.Properties[0] = App.currentUser;
                 NavigationService.Navigate(new NavigationPage());
             }

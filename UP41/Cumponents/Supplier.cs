@@ -17,17 +17,16 @@ namespace UP41.Cumponents
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Supplier()
         {
-            this.Hardware = new HashSet<Hardware>();
+            this.Accessories = new HashSet<Accessories>();
             this.Material = new HashSet<Material>();
         }
     
-        public int Id { get; set; }
-        public string Title { get; set; }
+        public string SupplierName { get; set; }
         public string Address { get; set; }
-        public Nullable<System.DateTime> DeliveryTime { get; set; }
+        public string DeliveryTime { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Hardware> Hardware { get; set; }
+        public virtual ICollection<Accessories> Accessories { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Material> Material { get; set; }
     }

@@ -12,24 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using UP41.Pages;
 
-namespace UP41
+namespace UP41.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для AddAccessoryPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AddAccessoryPage : Page
     {
-        public MainWindow()
+        public AddAccessoryPage()
         {
             InitializeComponent();
-            if (App.currentUser == null) MainFrame.Navigate(new AuthPage());
-            else
-            {
-                App.Current.Properties[0] = App.currentUser;
-                MainFrame.Navigate(new NavigationPage());
-            }
         }
     }
 }

@@ -12,14 +12,18 @@ namespace UP41.Cumponents
     using System;
     using System.Collections.Generic;
     
-    public partial class HardwareImage
+    public partial class AcessoriesImage
     {
-        public int Id { get; set; }
-        public string ImagePath { get; set; }
-        public byte[] ImageBin { get; set; }
-        public Nullable<System.DateTime> Timestamp { get; set; }
-        public string HardwareId { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public AcessoriesImage()
+        {
+            this.Accessories = new HashSet<Accessories>();
+        }
     
-        public virtual Hardware Hardware { get; set; }
+        public int Id { get; set; }
+        public byte[] Photo { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Accessories> Accessories { get; set; }
     }
 }

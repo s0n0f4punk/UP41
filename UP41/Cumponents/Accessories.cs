@@ -12,30 +12,31 @@ namespace UP41.Cumponents
     using System;
     using System.Collections.Generic;
     
-    public partial class Hardware
+    public partial class Accessories
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Hardware()
+        public Accessories()
         {
-            this.HardwareImage = new HashSet<HardwareImage>();
-            this.ProductHardware = new HashSet<ProductHardware>();
+            this.ProductAccessories = new HashSet<ProductAccessories>();
         }
     
-        public string Id { get; set; }
-        public string Title { get; set; }
-        public Nullable<int> UnitId { get; set; }
-        public Nullable<int> Amount { get; set; }
-        public Nullable<int> SupplierId { get; set; }
-        public Nullable<int> TypeId { get; set; }
-        public Nullable<int> Cost { get; set; }
-        public Nullable<int> Weight { get; set; }
+        public string Article { get; set; }
+        public string Name { get; set; }
+        public Nullable<int> IdUnit { get; set; }
+        public Nullable<decimal> Count { get; set; }
+        public string SupplierName { get; set; }
+        public Nullable<int> IdAcessoriesImage { get; set; }
+        public Nullable<int> IdTypeAccessories { get; set; }
+        public Nullable<decimal> Price { get; set; }
+        public Nullable<decimal> Weight { get; set; }
+        public Nullable<int> IdStorage { get; set; }
     
-        public virtual HardwareType HardwareType { get; set; }
-        public virtual HardwareUnit HardwareUnit { get; set; }
+        public virtual AcessoriesImage AcessoriesImage { get; set; }
+        public virtual Storage Storage { get; set; }
         public virtual Supplier Supplier { get; set; }
+        public virtual TypeAccessories TypeAccessories { get; set; }
+        public virtual Unit Unit { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HardwareImage> HardwareImage { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductHardware> ProductHardware { get; set; }
+        public virtual ICollection<ProductAccessories> ProductAccessories { get; set; }
     }
 }

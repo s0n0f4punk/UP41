@@ -23,9 +23,9 @@ namespace UP41.Pages
         public NavigationPage()
         {
             InitializeComponent();
-            int RoleId = (int)App.db.User.Where(x => x.Id == App.currentUser).FirstOrDefault().RoleId;
-            if (RoleId != 1) WorkersButt.Visibility = Visibility.Collapsed;
-            if (RoleId == 5) MaterialsButt.Visibility = Visibility.Collapsed;
+            int RoleId = (int)App.db.User.Where(x => x.Login == App.currentUser).FirstOrDefault().RoleId;
+            if (RoleId != 3) WorkersButt.Visibility = Visibility.Collapsed;
+            if (RoleId == 4) MaterialsButt.Visibility = Visibility.Collapsed;
         }
 
         private void ExitButt_Click(object sender, RoutedEventArgs e)
