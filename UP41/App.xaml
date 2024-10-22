@@ -7,14 +7,28 @@
         <Style TargetType="TextBox">
             <Setter Property="Width" Value="150"></Setter>
             <Setter Property="Margin" Value="5 0"></Setter>
+            <Setter Property="FontSize" Value="14"></Setter>
+            <Setter Property="FontFamily" Value="Courier New"></Setter>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14"></Setter>
+            <Setter Property="FontFamily" Value="Courier New"></Setter>
         </Style>
         <Style TargetType="ComboBox">
             <Setter Property="Width" Value="100"></Setter>
             <Setter Property="Margin" Value="5 0"></Setter>
+            <Setter Property="FontSize" Value="14"></Setter>
+            <Setter Property="FontFamily" Value="Courier New"></Setter>
         </Style>
         <Style TargetType="Button">
             <Setter Property="Width" Value="100"></Setter>
             <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="FontSize" Value="14"></Setter>
+            <Setter Property="FontFamily" Value="Courier New"></Setter>
+        </Style>
+        <Style TargetType="ListView">
+            <Setter Property="FontSize" Value="14"></Setter>
+            <Setter Property="FontFamily" Value="Courier New"></Setter>
         </Style>
     </Application.Resources>
 </Application>

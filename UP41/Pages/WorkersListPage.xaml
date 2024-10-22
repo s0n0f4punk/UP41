@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:UP41.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="768" d:DesignWidth="1366"
       Title="WorkersListPage">
 
     <Grid>
@@ -17,9 +17,9 @@
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
-                        <GridViewColumn Header="Фамилия" Width="200" DisplayMemberBinding="{Binding Surname}"></GridViewColumn>
-                        <GridViewColumn Header="Возраст" Width="50" DisplayMemberBinding="{Binding Age}"></GridViewColumn>
-                        <GridViewColumn Header="Список операций" Width="550" DisplayMemberBinding="{Binding Tasks}"></GridViewColumn>
+                        <GridViewColumn Header="Фамилия" Width="250" DisplayMemberBinding="{Binding Surname}"></GridViewColumn>
+                        <GridViewColumn Header="Возраст" Width="100" DisplayMemberBinding="{Binding Age}"></GridViewColumn>
+                        <GridViewColumn Header="Список операций" Width="1000" DisplayMemberBinding="{Binding Tasks}"></GridViewColumn>
                     </GridView.Columns>
                 </GridView>
             </ListView.View>

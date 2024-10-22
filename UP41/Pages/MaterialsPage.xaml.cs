@@ -76,12 +76,27 @@ namespace UP41.Pages
 
         private void AddAccessoryButt_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new AddAccessoryPage(new Accessories()));
         }
 
         private void DeleteAcessoryButt_Click(object sender, RoutedEventArgs e)
         {
-
+            if (ComponentsList.SelectedItem != null)
+            {
+                Accessories delete = ComponentsList.SelectedItem as Accessories;
+                MessageBoxResult result = MessageBox.Show("Вы уверены, что хотите удалить материал: " + App.db.Accessories.Where(x => x.Article == delete.Article).First().Name + "?", "Подтверждение", MessageBoxButton.YesNo);
+                switch (result)
+                {
+                    case MessageBoxResult.Yes:
+                        App.db.Accessories.Remove(ComponentsList.SelectedItem as Accessories);
+                        App.db.SaveChanges();
+                        Refresh();
+                        break;
+                    case MessageBoxResult.No:
+                        break;
+                }
+            }
+            else MessageBox.Show("Сначала выберите компонент!");
         }
 
         private void AddMaterialButt_Click(object sender, RoutedEventArgs e)

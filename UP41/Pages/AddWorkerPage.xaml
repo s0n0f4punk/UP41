@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:UP41.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="768" d:DesignWidth="1366"
       Title="AddWorkerPage">
 
     <Grid>
@@ -66,8 +66,8 @@
                     </ComboBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button x:Name="SaveButt" Width="70" Margin="5 0" Click="SaveButt_Click">Сохранить</Button>
-                    <Button x:Name="BackButt" Width="50" Click="BackButt_Click">Назад</Button>
+                    <Button x:Name="SaveButt" Height="25" Width="100" Margin="5 0" Click="SaveButt_Click">Сохранить</Button>
+                    <Button x:Name="BackButt" Height="25" Width="50" Click="BackButt_Click">Назад</Button>
                 </StackPanel>
             </StackPanel>
             <StackPanel Orientation="Vertical">
@@ -80,7 +80,7 @@
                     <ListView.View>
                         <GridView>
                             <GridView.Columns>
-                                <GridViewColumn x:Name="Title" Header="Производственные операции" Width="200" DisplayMemberBinding="{Binding Name}"></GridViewColumn>
+                                <GridViewColumn x:Name="Title" Header="Производственные операции" Width="270" DisplayMemberBinding="{Binding Name}"></GridViewColumn>
                             </GridView.Columns>
                         </GridView>
                     </ListView.View>

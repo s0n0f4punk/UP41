@@ -23,7 +23,7 @@
                 <PasswordBox x:Name="PassRepTbx" Width="200" Margin="5 0"></PasswordBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 4">
-                <Button x:Name="RegButt" Width="150" Margin="5 0" Click="RegButt_Click">Зарегестрироваться</Button>
+                <Button x:Name="RegButt" Width="200" Margin="5 0" Click="RegButt_Click">Зарегестрироваться</Button>
                 <Button x:Name="BackButt" Width="70" Margin="5 0" Click="BackButt_Click">Назад</Button>
             </StackPanel>
         </StackPanel>

@@ -12,7 +12,7 @@
         <TabControl Margin="0 10 0 0">
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock FontWeight="Bold" Foreground="#FFBB0C07">Материалы</TextBlock>
+                    <TextBlock>Материалы</TextBlock>
                 </TabItem.Header>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -30,19 +30,19 @@
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Артикул" Width="100" DisplayMemberBinding="{Binding Article}"/>
-                                <GridViewColumn Header="Наименование" Width="150" DisplayMemberBinding="{Binding Name}"/>
+                                <GridViewColumn Header="Наименование" Width="350" DisplayMemberBinding="{Binding Name}"/>
                                 <GridViewColumn Header="Кол-во" Width="90" DisplayMemberBinding="{Binding Count}"/>
-                                <GridViewColumn Header="Ед. измерения" Width="100" DisplayMemberBinding="{Binding Unit.Name}"/>
+                                <GridViewColumn Header="Ед. измерения" Width="150" DisplayMemberBinding="{Binding Unit.Name}"/>
                                 <GridViewColumn Header="Закуп. цена" Width="100" DisplayMemberBinding="{Binding PriceOneKg}"/>
-                                <GridViewColumn Header="Поставщик" Width="150" DisplayMemberBinding="{Binding SupplierName}"/>
-                                <GridViewColumn Header="Срок доставки" Width="100" DisplayMemberBinding="{Binding Supplier.DeliveryTime}"/>
+                                <GridViewColumn Header="Поставщик" Width="250" DisplayMemberBinding="{Binding SupplierName}"/>
+                                <GridViewColumn Header="Срок доставки" Width="150" DisplayMemberBinding="{Binding Supplier.DeliveryTime}"/>
                             </GridView>
                         </ListView.View>
                     </ListView>
                     <StackPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
-                        <TextBlock x:Name="MaterialCountTb" FontWeight="Bold">16 из 100</TextBlock>
-                        <TextBlock FontWeight="Bold" Margin="40 0 0 0">общая закупочная стоимость:</TextBlock>
-                        <TextBlock x:Name="MaterialPriceTb" FontWeight="Bold" Margin="10 0 0 0">10000 руб.</TextBlock>
+                        <TextBlock x:Name="MaterialCountTb">16 из 100</TextBlock>
+                        <TextBlock Margin="20 0 0 0">общая закупочная стоимость:</TextBlock>
+                        <TextBlock x:Name="MaterialPriceTb" Margin="10 0 0 0">10000 руб.</TextBlock>
                     </StackPanel>
                 </Grid>
 
@@ -50,7 +50,7 @@
 
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock FontWeight="Bold" Foreground="#FFBB0C07">Комплектующие</TextBlock>
+                    <TextBlock>Комплектующие</TextBlock>
                 </TabItem.Header>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -68,19 +68,19 @@
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Артикул" Width="100" DisplayMemberBinding="{Binding Article}"/>
-                                <GridViewColumn Header="Наименование" Width="150" DisplayMemberBinding="{Binding Name}"/>
+                                <GridViewColumn Header="Наименование" Width="350" DisplayMemberBinding="{Binding Name}"/>
                                 <GridViewColumn Header="Кол-во" Width="90" DisplayMemberBinding="{Binding Count}"/>
-                                <GridViewColumn Header="Ед. измерения" Width="100" DisplayMemberBinding="{Binding Unit.Name}"/>
+                                <GridViewColumn Header="Ед. измерения" Width="150" DisplayMemberBinding="{Binding Unit.Name}"/>
                                 <GridViewColumn Header="Закуп. цена" Width="100" DisplayMemberBinding="{Binding PriceOneKg}"/>
-                                <GridViewColumn Header="Поставщик" Width="150" DisplayMemberBinding="{Binding SupplierName}"/>
-                                <GridViewColumn Header="Срок доставки" Width="100" DisplayMemberBinding="{Binding Supplier.DeliveryTime}"/>
+                                <GridViewColumn Header="Поставщик" Width="250" DisplayMemberBinding="{Binding SupplierName}"/>
+                                <GridViewColumn Header="Срок доставки" Width="150" DisplayMemberBinding="{Binding Supplier.DeliveryTime}"/>
                             </GridView>
                         </ListView.View>
                     </ListView>
                     <StackPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
-                        <TextBlock x:Name="AccessoriesCountTb" FontWeight="Bold">14 из 88</TextBlock>
-                        <TextBlock FontWeight="Bold" Margin="40 0 0 0">общая закупочная стоимость:</TextBlock>
-                        <TextBlock x:Name="AccessoriesPriceTb" FontWeight="Bold" Margin="10 0 0 0">69000 руб.</TextBlock>
+                        <TextBlock x:Name="AccessoriesCountTb">14 из 88</TextBlock>
+                        <TextBlock Margin="20 0 0 0">общая закупочная стоимость:</TextBlock>
+                        <TextBlock x:Name="AccessoriesPriceTb" Margin="10 0 0 0">69000 руб.</TextBlock>
                     </StackPanel>
                 </Grid>
             </TabItem>
