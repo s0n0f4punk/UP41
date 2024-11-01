@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UP41.Windows"
         mc:Ignorable="d"
+        Icon="/Resources/Ico.png"
         Title="StatusWindows"  Height="300" Width="400" MinHeight="300" MinWidth="400">
     <Grid Background="#f1f1f1">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">

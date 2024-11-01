@@ -15,7 +15,7 @@
                 <TextBlock VerticalAlignment="Center" Margin="10 0 5 0">Пройдено?</TextBlock>
                 <CheckBox x:Name="PassedCb" VerticalAlignment="Center" Checked="PassedCb_Checked" Unchecked="PassedCb_Unchecked"></CheckBox>
             </StackPanel>
-            <TextBox TextChanged="ReasonTb_TextChanged" x:Name="ReasonTb" Visibility="Collapsed" Text="{Binding Description}" Height="90" Margin="5 5 5 10"></TextBox>
+            <TextBox TextChanged="ReasonTb_TextChanged" x:Name="ReasonTb" Visibility="Collapsed" Text="{Binding Description}" Height="90" Width="600" Margin="5 5 5 10"></TextBox>
         </StackPanel>
     </Grid>
 </UserControl>

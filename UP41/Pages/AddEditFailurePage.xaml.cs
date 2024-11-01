@@ -115,5 +115,10 @@ namespace UP41.Pages
             if (NavigationService.CanGoBack)
                 NavigationService.Navigate(new FailurePage());
         }
+
+        private void BackButt_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new FailurePage());
+        }
     }
 }

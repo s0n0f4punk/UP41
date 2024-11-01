@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UP41.Windows"
         mc:Ignorable="d"
+        Icon="/Resources/Ico.png"
         Title="DocumentWindow"  Height="300" Width="400" MinHeight="300" MinWidth="400">
     <Grid Background="#f1f1f1">
         <TextBlock FontSize="18" Margin="10 5 0 0">Документы заказа</TextBlock>

@@ -438,6 +438,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Ico.png" />
     <Resource Include="Resources\edit.png" />
     <Resource Include="Resources\save.png" />
     <Resource Include="Resources\delete.png" />

@@ -9,6 +9,14 @@
             <Setter Property="Margin" Value="5 0"></Setter>
             <Setter Property="FontSize" Value="14"></Setter>
             <Setter Property="FontFamily" Value="Century Gothic"></Setter>
+            <Setter Property="Background" Value="#f3cc8d"></Setter>
+        </Style>
+        <Style TargetType="PasswordBox">
+            <Setter Property="Width" Value="150"></Setter>
+            <Setter Property="Margin" Value="5 0"></Setter>
+            <Setter Property="FontSize" Value="14"></Setter>
+            <Setter Property="FontFamily" Value="Century Gothic"></Setter>
+            <Setter Property="Background" Value="#f3cc8d"></Setter>
         </Style>
         <Style TargetType="TextBlock">
             <Setter Property="FontSize" Value="14"></Setter>
@@ -21,14 +29,55 @@
             <Setter Property="FontFamily" Value="Century Gothic"></Setter>
         </Style>
         <Style TargetType="Button">
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="(Button.RenderTransform).(ScaleTransform.ScaleX)"
+                                 To="1.05" Duration="0:0:0.2" />
+                            <DoubleAnimation Storyboard.TargetProperty="(Button.RenderTransform).(ScaleTransform.ScaleY)"
+                                 To="1.05" Duration="0:0:0.2"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="(Button.RenderTransform).(ScaleTransform.ScaleX)"
+                                 To="1" Duration="0:0:0.2"/>
+                            <DoubleAnimation Storyboard.TargetProperty="(Button.RenderTransform).(ScaleTransform.ScaleY)"
+                                 To="1" Duration="0:0:0.2"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="RenderTransformOrigin" Value="0.5 0.5"></Setter>
             <Setter Property="Width" Value="100"></Setter>
             <Setter Property="Margin" Value="5"></Setter>
             <Setter Property="FontSize" Value="14"></Setter>
             <Setter Property="FontFamily" Value="Century Gothic"></Setter>
+            <Setter Property="Background" Value="#f3cc8d"></Setter>
+            <Setter Property="BorderBrush" Value="#4867ac"></Setter>
+            <Setter Property="BorderThickness" Value="2"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" BorderThickness="1" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="3">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
         <Style TargetType="ListView">
             <Setter Property="FontSize" Value="14"></Setter>
             <Setter Property="FontFamily" Value="Century Gothic"></Setter>
+            <Setter Property="Background" Value="#f3cc8d"></Setter>
         </Style>
     </Application.Resources>
 </Application>
