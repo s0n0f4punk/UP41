@@ -21,7 +21,7 @@ namespace UP41.Cumponents
         }
     
         public int Id { get; set; }
-        public string Title { get; set; }
+        public string Name { get; set; }
         public Nullable<int> Id_City { get; set; }
     
         public virtual City City { get; set; }

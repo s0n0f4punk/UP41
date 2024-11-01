@@ -142,5 +142,10 @@ namespace UP41.Pages
             NavigationService.Navigate(new MaterialsPage());
             MessageBox.Show("Изменения успешно сохранены!");
         }
+
+        private void BackButt_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new MaterialsPage());
+        }
     }
 }

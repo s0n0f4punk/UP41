@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UP41"
         mc:Ignorable="d"
         Title="MainWindow" Height="768" Width="1366">
-    <Grid>
+    <Grid Background="#f1f1f1">
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
 </Window>

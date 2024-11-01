@@ -25,7 +25,7 @@ namespace UP41.Pages
         {
             InitializeComponent();
             CityCbx.ItemsSource = App.db.City.ToList();
-            CityCbx.DisplayMemberPath = "Title";
+            CityCbx.DisplayMemberPath = "Name";
             TaskCbx.ItemsSource = App.db.PerformTasks.ToList();
             TaskCbx.DisplayMemberPath = "Name";
         }
@@ -64,7 +64,7 @@ namespace UP41.Pages
                     {
                         UserTasks ut = new UserTasks();
                         ut.Login = user.Login;
-                        ut.IdTask = ((PerformTasks)item).Id;
+                        ut.Id_PT = ((PerformTasks)item).Id;
                         App.db.UserTasks.Add(ut);
                     }
                 }
@@ -86,7 +86,7 @@ namespace UP41.Pages
             StreetSP.Visibility = Visibility.Visible;
             int city = ((City)CityCbx.SelectedItem).Id;
             StreetCbx.ItemsSource = App.db.Street.Where(x=>x.Id_City==city).ToList();
-            StreetCbx.DisplayMemberPath = "Title";
+            StreetCbx.DisplayMemberPath = "Name";
         }
 
         private void AddBut_Click(object sender, RoutedEventArgs e)

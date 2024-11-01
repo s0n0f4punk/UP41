@@ -15,8 +15,8 @@ namespace UP41.Cumponents
     public partial class UserTasks
     {
         public int Id { get; set; }
-        public Nullable<int> IdTask { get; set; }
         public string Login { get; set; }
+        public Nullable<int> Id_PT { get; set; }
     
         public virtual PerformTasks PerformTasks { get; set; }
         public virtual User User { get; set; }

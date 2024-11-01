@@ -123,5 +123,10 @@ namespace UP41.Pages
             }
             else MessageBox.Show("Сначала выберите материал!");
         }
+
+        private void BackButt_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new NavigationPage());
+        }
     }
 }

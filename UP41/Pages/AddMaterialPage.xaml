@@ -14,47 +14,47 @@
             <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
                 <StackPanel VerticalAlignment="Center">
                     <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
-                        <TextBlock Width="100">Артикул</TextBlock>
+                        <TextBlock Width="150">Артикул</TextBlock>
                         <TextBox Width="200" x:Name="ArticleTb" Text="{Binding Article}"></TextBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
-                        <TextBlock Width="100">Наименование</TextBlock>
+                        <TextBlock Width="150">Наименование</TextBlock>
                         <TextBox Width="200" x:Name="NameTb" Text="{Binding Name}"></TextBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
-                        <TextBlock Width="100">Ед. измерения</TextBlock>
+                        <TextBlock Width="150">Ед. измерения</TextBlock>
                         <ComboBox Width="200" x:Name="UnitCb" DisplayMemberPath="Name"></ComboBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
-                        <TextBlock Width="100">Количество</TextBlock>
+                        <TextBlock Width="150">Количество</TextBlock>
                         <TextBox Width="200" x:Name="CountTb" Text="{Binding Count}"></TextBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
-                        <TextBlock Width="100">Поставщик</TextBlock>
+                        <TextBlock Width="150">Поставщик</TextBlock>
                         <ComboBox Width="200" x:Name="SupplierCb" DisplayMemberPath="SupplierName"></ComboBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
-                        <TextBlock Width="100">Тип материала</TextBlock>
+                        <TextBlock Width="150">Тип материала</TextBlock>
                         <ComboBox Width="200" x:Name="MaterialTypeCb" DisplayMemberPath="Name"></ComboBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
-                        <TextBlock Width="100">Цена</TextBlock>
+                        <TextBlock Width="150">Цена</TextBlock>
                         <TextBox Width="200" x:Name="PriceTb" Text="{Binding PriceOneKg}"></TextBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
-                        <TextBlock Width="100">Масса в кг.</TextBlock>
+                        <TextBlock Width="150">Масса в кг.</TextBlock>
                         <TextBox Width="200" x:Name="MassTb" Text="{Binding MassOneMetr}"></TextBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
-                        <TextBlock Width="100">ГОСТ</TextBlock>
+                        <TextBlock Width="150">ГОСТ</TextBlock>
                         <ComboBox Width="200" x:Name="StandartCb" DisplayMemberPath="Name"></ComboBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
-                        <TextBlock Width="100">Длина в метрах</TextBlock>
+                        <TextBlock Width="150">Длина в метрах</TextBlock>
                         <TextBox Width="200" x:Name="WidthTb" Text="{Binding WidthMetr}"></TextBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
-                        <TextBlock Width="100">Склад</TextBlock>
+                        <TextBlock Width="150">Склад</TextBlock>
                         <ComboBox Width="200" x:Name="SkladCb" DisplayMemberPath="Name"></ComboBox>
                     </StackPanel>
                 </StackPanel>
@@ -72,6 +72,7 @@
             </StackPanel>
 
             <Button x:Name="SaveBtn" Margin="0 10 0 0" Width="250" Click="SaveBtn_Click">Сохранить</Button>
+            <Button x:Name="BackButt" Margin="0 10 0 0" Width="250" Click="BackButt_Click">Назад</Button>
         </StackPanel>
     </Grid>
 </Page>

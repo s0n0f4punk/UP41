@@ -25,6 +25,7 @@
                         <ComboBox x:Name="MaterialFilterCb" Height="25" DisplayMemberPath="Name" Width="200" Margin="15 0" SelectionChanged="MaterialFilterCb_SelectionChanged"></ComboBox>
                         <Button x:Name="AddMaterialButt" Margin="15 0" Height="25" Click="AddMaterialButt_Click"> Добавить</Button>
                         <Button x:Name="DeleteMaterialButt" Margin="15 0" Height="25" Click="DeleteMaterialButt_Click">Удалить</Button>
+                        <Button x:Name="BackButt" Margin="15 0" Height="25" Click="BackButt_Click">Назад</Button>
                     </StackPanel>
                     <ListView x:Name="MaterialsList" Grid.Row="1" >
                         <ListView.View>

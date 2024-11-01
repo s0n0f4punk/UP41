@@ -17,7 +17,7 @@
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
-                        <GridViewColumn Header="Фамилия" Width="250" DisplayMemberBinding="{Binding Surname}"></GridViewColumn>
+                        <GridViewColumn Header="Фамилия" Width="220" DisplayMemberBinding="{Binding Surname}"></GridViewColumn>
                         <GridViewColumn Header="Возраст" Width="100" DisplayMemberBinding="{Binding Age}"></GridViewColumn>
                         <GridViewColumn Header="Список операций" Width="1000" DisplayMemberBinding="{Binding Tasks}"></GridViewColumn>
                     </GridView.Columns>

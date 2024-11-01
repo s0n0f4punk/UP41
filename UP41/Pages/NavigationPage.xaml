@@ -12,7 +12,11 @@
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Button x:Name="ExitButt" Width="200" Click="ExitButt_Click">Выйти из аккаунта</Button>
             <Button x:Name="WorkersButt" Width="200" Click="WorkersButt_Click">Учёт рабочих</Button>
-            <Button x:Name="MaterialsButt" Width="200" Click="MaterialsButt_Click">Учёт материалов</Button> 
+            <Button x:Name="MaterialsButt" Width="200" Click="MaterialsButt_Click">Учёт материалов</Button>
+            <Button x:Name="PlanButt" Width="200" Click="PlanButt_Click">Планы цехов</Button>
+            <Button x:Name="OrdersButt" Width="200" Click="OrdersButt_Click">Список заказов</Button>
+            <Button x:Name="FailureButt" Width="200" Click="FailrueButt_Click">Список сбоев</Button>
+            <Button x:Name="TestButt" Width="200" Click="TestButt_Click">Список тестов</Button>
         </StackPanel>
     </Grid>
 </Page>

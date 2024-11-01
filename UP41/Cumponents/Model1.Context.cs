@@ -27,11 +27,17 @@ namespace UP41.Cumponents
     
         public virtual DbSet<Accessories> Accessories { get; set; }
         public virtual DbSet<AcessoriesImage> AcessoriesImage { get; set; }
+        public virtual DbSet<City> City { get; set; }
         public virtual DbSet<Document> Document { get; set; }
         public virtual DbSet<Equipment> Equipment { get; set; }
+        public virtual DbSet<HardwareFailure> HardwareFailure { get; set; }
+        public virtual DbSet<Item> Item { get; set; }
+        public virtual DbSet<Location> Location { get; set; }
+        public virtual DbSet<Material> Material { get; set; }
         public virtual DbSet<MaterialImage> MaterialImage { get; set; }
         public virtual DbSet<OperationSpecification> OperationSpecification { get; set; }
         public virtual DbSet<Order> Order { get; set; }
+        public virtual DbSet<OrderStatus> OrderStatus { get; set; }
         public virtual DbSet<PerformTasks> PerformTasks { get; set; }
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<ProductAccessories> ProductAccessories { get; set; }
@@ -40,18 +46,19 @@ namespace UP41.Cumponents
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Size> Size { get; set; }
         public virtual DbSet<Standart> Standart { get; set; }
+        public virtual DbSet<StatusOrder> StatusOrder { get; set; }
         public virtual DbSet<Storage> Storage { get; set; }
+        public virtual DbSet<Street> Street { get; set; }
         public virtual DbSet<Supplier> Supplier { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<Test> Test { get; set; }
         public virtual DbSet<TypeAccessories> TypeAccessories { get; set; }
         public virtual DbSet<TypeEquipment> TypeEquipment { get; set; }
         public virtual DbSet<TypeMaterial> TypeMaterial { get; set; }
         public virtual DbSet<Unit> Unit { get; set; }
-        public virtual DbSet<UserImage> UserImage { get; set; }
-        public virtual DbSet<UserTasks> UserTasks { get; set; }
-        public virtual DbSet<City> City { get; set; }
-        public virtual DbSet<Street> Street { get; set; }
-        public virtual DbSet<Material> Material { get; set; }
         public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<UserImage> UserImage { get; set; }
+        public virtual DbSet<WorkshopItem> WorkshopItem { get; set; }
+        public virtual DbSet<UserTasks> UserTasks { get; set; }
     }
 }

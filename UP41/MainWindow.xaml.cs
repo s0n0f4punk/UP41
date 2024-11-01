@@ -24,6 +24,7 @@ namespace UP41
         public MainWindow()
         {
             InitializeComponent();
+            App.mainWindow = this;
             if (App.currentUser == null) MainFrame.Navigate(new AuthPage());
             else
             {

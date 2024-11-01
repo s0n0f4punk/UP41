@@ -29,5 +29,13 @@ namespace UP41.Cumponents
                 return string.Join(", ", taskNames);
             }
         }
+        public string FIO
+        {
+            get
+            {
+                string FIO = Surname + " " + Name + " " + Patronymic;
+                return FIO;
+            }
+        }
     }
 }

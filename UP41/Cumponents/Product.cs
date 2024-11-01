@@ -11,9 +11,12 @@ namespace UP41.Cumponents
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class Product
+    using System.ComponentModel;
+
+    public partial class Product : INotifyPropertyChanged
     {
+        private string name = string.Empty;
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
@@ -24,11 +27,19 @@ namespace UP41.Cumponents
             this.ProductDetail1 = new HashSet<ProductDetail>();
             this.ProductMaterial = new HashSet<ProductMaterial>();
             this.Size = new HashSet<Size>();
+            this.Test = new HashSet<Test>();
         }
     
         public int Id { get; set; }
-        public string Name { get; set; }
-    
+        public string Name
+        {
+            get => name; set
+            {
+                name = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
+            }
+        }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OperationSpecification> OperationSpecification { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -43,5 +54,9 @@ namespace UP41.Cumponents
         public virtual ICollection<ProductMaterial> ProductMaterial { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Size> Size { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Test> Test { get; set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

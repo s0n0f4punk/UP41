@@ -30,11 +30,11 @@ namespace UP41.Cumponents
         public string Patronymic { get; set; }
         public Nullable<int> IdUserImage { get; set; }
         public Nullable<System.DateTime> BirthDate { get; set; }
+        public string Qualification { get; set; }
+        public string Education { get; set; }
         public Nullable<int> Id_Street { get; set; }
         public string House { get; set; }
         public string Flat { get; set; }
-        public string Qualification { get; set; }
-        public string Education { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Order { get; set; }
